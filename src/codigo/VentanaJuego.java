@@ -26,6 +26,8 @@ public class VentanaJuego extends javax.swing.JFrame {
     BufferedImage buffer = null;
     
     HalconMilenario miNave = new HalconMilenario();
+    
+    Disparo disparo = new Disparo();
     Timer temporizador = new Timer(10, new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -61,7 +63,8 @@ public class VentanaJuego extends javax.swing.JFrame {
         /////////////redibujaremos aqui cada elemento//////////////
         g2.drawImage(miNave.imagen, miNave.x, miNave.y, null);
         miNave.mueve();
-        
+         g2.drawImage(disparo.imagen, disparo.x, disparo.y, null);
+        disparo.mueve();
         
         
         
@@ -122,6 +125,7 @@ public class VentanaJuego extends javax.swing.JFrame {
         switch (evt.getKeyCode()){
             case KeyEvent.VK_LEFT: miNave.setPulsadoIzquierda(true); break;
             case KeyEvent.VK_RIGHT: miNave.setPulsadoDerecha(true); break;
+            case KeyEvent.VK_SPACE: disparo.x = miNave.x+19; disparo.y = miNave.y-10; break;
         }
     }//GEN-LAST:event_formKeyPressed
 
