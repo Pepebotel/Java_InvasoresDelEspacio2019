@@ -14,7 +14,8 @@ import javax.imageio.ImageIO;
 public class Disparo {
     public Image imagen = null;
     public int x = 0;
-    public int y = 0;
+    public int y = 2000;
+    public boolean disparado = false;
         
     public Disparo() {
         try {
@@ -24,7 +25,13 @@ public class Disparo {
     }
     
     public void mueve() {
-        y--;
+        if (disparado){
+            y--;
+        }
+    }
+    public void posicionDisparo (HalconMilenario _nave){
+        x=_nave.x + _nave.imagen.getWidth(null)/2 - imagen.getWidth(null)/2;
+        y=_nave.y - _nave.imagen.getHeight(null)/2;
     }
         
 }

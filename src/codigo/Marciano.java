@@ -13,7 +13,7 @@ import javax.imageio.ImageIO;
  * @author jorge
  */
 public class Marciano {
-       public Image imagen, imagen2, imagen3 = null;
+    public Image imagen, imagen2, imagen3, imagen4 = null;
     public int x = 0;
     public int y = 0;
     private int vX=1;
@@ -23,10 +23,19 @@ public Marciano() {
             imagen = ImageIO.read(getClass().getResource("/imagenes/naveTie.png"));
             imagen2 = ImageIO.read(getClass().getResource("/imagenes/naveImperio.png"));
             imagen3 = ImageIO.read(getClass().getResource("/imagenes/starDestroyer.png"));
+            imagen4 = ImageIO.read(getClass().getResource("/imagenes/naveTie2.png"));
         } catch (IOException ex) {
         }
     }
 public void  mueve() {
     x += vX;
 }
+
+    public void setvX(int vX) {
+        this.vX = vX;
+    }
+
+    public int getvX() {
+        return vX;
+    }
 }
